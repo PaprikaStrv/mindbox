@@ -8,7 +8,8 @@
     "skipLibCheck": true,
     "types": ["node"],
     "paths": {
-      "@ui/*": ["./ui/*"]
+      "@ui/*": ["./ui/*"],
+      "@components/*": ["./components/*"],
     },
 
     /* Bundler mode */
