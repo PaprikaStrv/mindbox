@@ -35,7 +35,7 @@ const defaultTodos = [
 ];
 
 export const Todos = () => {
-  const [todos, setTodos] = useState<TodosDTO[]>(defaultTodos);
+  const [todos, setTodos] = React.useState<TodosDTO[]>(defaultTodos);
   const [filterValue, setFilterValue] = useState(FilterTodosEnum.all);
 
   const handleAddTodo = (todo: TodosDTO) => {
