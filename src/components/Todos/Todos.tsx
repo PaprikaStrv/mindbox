@@ -3,7 +3,7 @@ import React, {  useState } from "react";
 import { TodosFooter } from "./components/TodosFooter/TodosFooter";
 import { TodosList } from "./components/TodosList/TodosList";
 import { TodosInput } from "./components/TodosInput/TodosInput";
-
+import {v4 as uuid } from "uuid";
 export enum TodoStateEnum {
   active,
   completed,
@@ -23,12 +23,12 @@ export interface TodosDTO {
 
 const defaultTodos = [
   {
-    id: `testTodo1 ${new Date().toISOString()}`,
+    id: uuid(),
     title: "testTodo1",
     state: TodoStateEnum.active,
   },
   {
-    id: `testTodo2 ${new Date().toISOString()}`,
+    id: uuid(),
     title: "testTodo2",
     state: TodoStateEnum.completed,
   },

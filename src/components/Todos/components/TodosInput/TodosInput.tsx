@@ -1,6 +1,7 @@
 import { TodoStateEnum, TodosDTO } from "@components/Todos/Todos";
 import { Box, Button, TextField } from "@mui/material";
 import React, { useState } from "react";
+import {v4 as uuid } from "uuid";
 
 interface TodosInputProps {
   onAddTodo: (todo: TodosDTO) => void;
@@ -21,7 +22,7 @@ export const TodosInput: React.FC<TodosInputProps> = ({
 
   const handleAddTodo = () => {
     onAddTodo({
-      id: `${value} ${new Date().toISOString()}`,
+      id: uuid(),
       state: TodoStateEnum.active,
       title: value,
     });
@@ -36,8 +37,11 @@ export const TodosInput: React.FC<TodosInputProps> = ({
         onChange={onInputChange}
         fullWidth
         placeholder="Input todo title"
-      ></TextField>
-      <Button variant="outlined" sx={{ ml: 4 }} onClick={handleAddTodo}>
+        inputProps={{
+          "data-testid": "todo-input-field",
+        }}
+      />
+      <Button data-testid="add-todo-test-id" variant="outlined" sx={{ ml: 4 }} onClick={handleAddTodo}>
         Add
       </Button>
     </Box>
